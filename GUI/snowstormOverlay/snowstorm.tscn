@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://5msx332iv8nt"]
+
+[sub_resource type="Gradient" id="Gradient_wfiia"]
+colors = PackedColorArray(1, 1, 1, 0.7411765, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5u6uj"]
+gradient = SubResource("Gradient_wfiia")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1glmd"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 1)
+angle_min = 10.0000105
+angle_max = 20.000011
+gravity = Vector3(-50, 80, 0)
+radial_accel_min = -1.0000023
+radial_accel_max = -1.0000023
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 2.0
+scale_max = 2.0
+color = Color(1, 1, 1, 0.84313726)
+color_ramp = SubResource("GradientTexture1D_5u6uj")
+
+[node name="Snowstorm" type="GPUParticles2D"]
+position = Vector2(0, -5)
+amount = 5000
+lifetime = 20.0
+preprocess = 2.9
+process_material = SubResource("ParticleProcessMaterial_1glmd")

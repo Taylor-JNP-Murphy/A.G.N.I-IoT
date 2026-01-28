@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://drrik48l6pemi"]
+
+[ext_resource type="Texture2D" uid="uid://cmal8xrpqhf4q" path="res://sprites/TX Props.png" id="1_gsfgs"]
+[ext_resource type="Script" uid="uid://cuakoc4d2tjh8" path="res://entities/runeStones/runeStones.gd" id="1_w6du1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6du1"]
+atlas = ExtResource("1_gsfgs")
+region = Rect2(192, 1, 64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfgs"]
+size = Vector2(36, 60)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rys3"]
+font_size = 9
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5411765)
+
+[node name="Runestonemedium" type="Area2D"]
+script = ExtResource("1_w6du1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_w6du1")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_gsfgs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -46.0
+offset_right = 33.0
+offset_bottom = -23.0
+text = "[E] to Interact"
+label_settings = SubResource("LabelSettings_7rys3")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

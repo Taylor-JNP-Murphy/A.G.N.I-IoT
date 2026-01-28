@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs27cyna1ojhs"]
+
+[ext_resource type="PackedScene" path="res://maps/Path_0.tscn" id="0_id"]
+[ext_resource type="PackedScene" path="res://maps/BaseGrass_1.tscn" id="1_id"]
+[ext_resource type="Texture2D" uid="uid://8e6xskjlmer4" path="res://sprites/16x16 sprite-sheet.png" id="3_sf1sn"]
+[ext_resource type="Script" path="res://scripts/characterMovement.gd" id="4_gwogx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwogx"]
+atlas = ExtResource("3_sf1sn")
+region = Rect2(1, 0, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf1sn"]
+size = Vector2(46, 62)
+
+[node name="map" type="Node2D"]
+
+[node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(1080, 720)
+
+[node name="BaseGrass_1" parent="Window" instance=ExtResource("1_id")]
+
+[node name="Path_0" parent="Window" instance=ExtResource("0_id")]
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
+offset = Vector2(50, 50)
+zoom = Vector2(2, 2)
+
+[node name="Sprite" type="Sprite2D" parent="Window"]
+z_index = 4
+position = Vector2(52.5, 137)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_gwogx")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Window/Sprite"]
+safe_margin = 18.554
+script = ExtResource("4_gwogx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Window/Sprite/CharacterBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_sf1sn")
+debug_color = Color(0, 0.6, 0.69803923, 0.06666667)

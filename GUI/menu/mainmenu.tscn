@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqogxqwkll84v"]
+
+[ext_resource type="Script" uid="uid://mubfdc21qcah" path="res://GUI/menu/menu.gd" id="1_rfnng"]
+
+[node name="MainMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(500, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlowContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FlowContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="startButton" type="Button" parent="FlowContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+script = ExtResource("1_rfnng")
+
+[node name="infoButton" type="Button" parent="FlowContainer/VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+script = ExtResource("1_rfnng")
+
+[node name="quitButton" type="Button" parent="FlowContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("1_rfnng")
+
+[connection signal="pressed" from="FlowContainer/VBoxContainer/startButton" to="FlowContainer/VBoxContainer/startButton" method="_on_start_button_pressed"]
+[connection signal="pressed" from="FlowContainer/VBoxContainer/infoButton" to="FlowContainer/VBoxContainer/startButton" method="_on_info_button_pressed"]
+[connection signal="pressed" from="FlowContainer/VBoxContainer/quitButton" to="FlowContainer/VBoxContainer/startButton" method="_on_quit_button_pressed"]
