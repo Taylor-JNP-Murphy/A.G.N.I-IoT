@@ -12,4 +12,4 @@
 
     -Martin Kinac
 
-  Honorary: Maxim Tarakanov
+     Honorary: Maxim Tarakanov
