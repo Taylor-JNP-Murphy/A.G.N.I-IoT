@@ -11,3 +11,5 @@
     -Morgan Hooper
 
     -Martin Kinac
+
+  Honorary: Maxim Tarakanov
